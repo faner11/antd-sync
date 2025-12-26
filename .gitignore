@@ -20,8 +20,9 @@ TODO.md
 tsconfig.tsbuildinfo
 package/
 package.zip
-.umi
-.umi-production
+.dumi/tmp
+.dumi/tmp-test
+.dumi/tmp-production
 .cjsescache
 doc-site
 .lerna-changelog

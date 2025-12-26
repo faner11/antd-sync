@@ -1,46 +1,45 @@
-export default {
-  mode: 'site',
-  logo: '//img.alicdn.com/imgextra/i2/O1CN01Kq3OHU1fph6LGqjIz_!!6000000004056-55-tps-1141-150.svg',
-  title: 'Ant Design V5',
+import { defineConfig } from 'dumi'
+import path from 'path'
+
+export default defineConfig({
+  themeConfig: {
+    name: 'Ant Design',
+    logo: '//img.alicdn.com/imgextra/i2/O1CN01Kq3OHU1fph6LGqjIz_!!6000000004056-55-tps-1141-150.svg',
+    nav: {
+      'zh-CN': [
+        {
+          title: '主站',
+          path: 'https://v2.formilyjs.org/',
+        },
+        {
+          title: 'GITHUB',
+          path: 'https://github.com/formilyjs/antd',
+        },
+      ],
+      'en-US': [
+        {
+          title: 'Home Site',
+          path: 'https://formilyjs.org',
+        },
+        {
+          title: 'GITHUB',
+          path: 'https://github.com/alibaba/formily',
+        },
+      ],
+    },
+  },
   hash: true,
-  favicon:
+  favicons: [
     '//img.alicdn.com/imgextra/i3/O1CN01XtT3Tv1Wd1b5hNVKy_!!6000000002810-55-tps-360-360.svg',
+  ],
   outputPath: './doc-site',
   locales: [
-    ['en-US', 'English'],
-    ['zh-CN', '中文'],
+    {
+      id: 'en-US',
+      name: 'English',
+    },
+    { id: 'zh-CN', name: '中文' },
   ],
-  navs: {
-    'zh-CN': [
-      {
-        title: 'Ant Design V5',
-        path: '/zh-CN/components',
-      },
-      {
-        title: '主站',
-        path: 'https://v2.formilyjs.org/',
-      },
-      {
-        title: 'GITHUB',
-        path: 'https://github.com/formilyjs/antd',
-      },
-    ],
-    'en-US': [
-      {
-        title: 'Ant Design V5',
-        path: '/components',
-      },
-      {
-        title: 'Home Site',
-        path: 'https://formilyjs.org',
-      },
-      {
-        title: 'GITHUB',
-        path: 'https://github.com/alibaba/formily',
-      },
-    ],
-  },
-
   headScripts: [
     `
     function loadAd(){
@@ -71,11 +70,13 @@ export default {
     `,
   ],
   styles: [
-    `.__dumi-default-navbar-logo{
-      height: 60px !important;
+    `.dumi-default-logo img{
       width: 150px !important;
       padding-left:0 !important;
       color: transparent !important;
+    }
+    .dumi-default-header-left{
+      width: 400px !important;
     }
     .__dumi-default-navbar{
       padding: 0 28px !important;
@@ -161,4 +162,7 @@ export default {
     }
     `,
   ],
-}
+  alias: {
+    '@formily/antd-v5': path.join(__dirname, 'packages/components/src'),
+  },
+})
